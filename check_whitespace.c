@@ -67,6 +67,10 @@ int is_clean(char* str) {
   // greater than the second.
   result = strcmp(str, cleaned);
 
+   if (strcmp(cleaned, "") != 0) {
+    free(cleaned);
+   }
+
   return result == 0;
 }
 
@@ -80,8 +84,8 @@ int main() {
 		       "nonsense  ", 
 		       "USA", 
 		       "   ", 
-		       "     silliness    "
-  };
+ 		       "     silliness    "
+    };
 
   for (i=0; i<NUM_STRINGS; ++i) {
     if (is_clean(strings[i])) {
